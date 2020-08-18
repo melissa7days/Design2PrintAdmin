@@ -1,0 +1,65 @@
+<div class="container category-container">
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add Category</button>
+        </div>
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <ng-template [ngIf]="categoryUpdate===null">Add Category</ng-template>
+                            <ng-template [ngIf]="categoryUpdate!=null">Update Category</ng-template>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="setHeading()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" [formGroup]="categoryForm">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label for="Category Name">Category Name</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="CategoryName" placeholder="Category Name" formControlName="CategoryName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label for="Category Description">Category Description</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="CategoryDescription" placeholder="Category Description" formControlName="CategoryDescription">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-modal-dismis" data-dismiss="modal" (click)="setHeading()">Close</button>
+                        <button type="submit" class="btn btn-primary"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category Name</th>
+                    <th>Category Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="justify-content-center">
+                <tr *ngFor="let category of categories">
+                    <td>{{category.categoryId}}</td>
+                    <td>{{category.categoryName}}</td>
+                    <td>{{category.categoryDescription}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteCategory(category.categoryId)">Delete</button> |
+                        <button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#modalId" (click)="updateCategory(category.categoryId)">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

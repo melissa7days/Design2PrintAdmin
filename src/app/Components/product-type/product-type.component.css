@@ -1,0 +1,16 @@
+.producttype-container{
+    font-family: 'Montserrat', sans-serif !important;
+}
+.btn-add{
+    background-color: rgb(55, 141, 5);
+    border: none !important;
+    margin-bottom: 10px;
+}
+.btn-update{
+    background-color: rgb(55, 141, 5);
+    border: none !important;
+}
+.btn-danger{
+    background-color: rgb(151, 19, 19);
+    border: none !important;
+}
