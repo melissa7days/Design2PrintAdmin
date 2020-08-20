@@ -26,8 +26,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-modal-dismis" data-dismiss="modal" (click)="setHeading()">Close</button>
-                        <button type="submit" class="btn btn-primary"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
+                        <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
                     </div>
                 </div>
             </div>
@@ -45,8 +44,8 @@
                     <td>{{producttype.productTypeId}}</td>
                     <td>{{producttype.productTypeName}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" (click)="deleteProductType(producttype.productTypeId)">Delete</button> |
-                        <button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#modalId" (click)="updateProductType(producttype.productTypeId)">Update</button>
+                        <button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#modalId" (click)="updateProductType(producttype.productTypeId)">Update</button> |
+                        <button type="button" class="btn btn-danger" (click)="deleteProductType(producttype.productTypeId)">Delete</button> 
                     </td>
                 </tr>
             </tbody>

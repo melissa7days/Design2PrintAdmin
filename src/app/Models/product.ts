@@ -1,10 +1,7 @@
-import { Category } from './category';
-import { ProductType } from './product-type';
-
 export interface Product{
     productId: number;
-    categoryId: Category;
-    productTypeId: ProductType;
+    categoryId: number;
+    productTypeId: number;
     productName: string;
     productBasePrice: number;
     productImage: string;
