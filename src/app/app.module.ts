@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './Components/category/category.component';
 import { ProductTypeComponent } from './Components/product-type/product-type.component';
 import { ProductComponent } from './Components/product/product.component';
+import { QuantityComponent } from './Components/quantity/quantity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
     ProductTypeComponent,
-    ProductComponent
+    ProductComponent,
+    QuantityComponent
   ],
   imports: [
     BrowserModule,
