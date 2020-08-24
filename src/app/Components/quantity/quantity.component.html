@@ -1,7 +1,13 @@
-<div class="container quantity-container">
+<div class="container style-container">
     <div class="row mt-2">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add Quantity</button>
+        <div class="col-md-2">
+            <button type="button" class="link link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add New</button>
+        </div>
+        <div class="col-md-8">
+            <h2 class="headings"><span>Q</span>uantity</h2>
+        </div>
+        <div class="col-md-2">
+            
         </div>
         <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -16,17 +22,17 @@
                     <div class="modal-body">
                         <form action="" [formGroup]="quantityForm">
                             <div class="form-group row">
-                                <div class="col-md-4">
-                                    <label for="Quantity Type">Quantity Type</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="number" class="form-control" id="QuantityType" placeholder="Quantity Type" formControlName="quantityName">
+                                <div class="main_div">
+                                    <div class="group">
+                                        <input type="number" required="required" class="form-control" id="QuantityType" formControlName="quantityName"/>
+                                        <label>Quantity Type</label>
+                                      </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
+                        <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()" [disabled]="!quantityForm.valid">Save</button>
                     </div>
                 </div>
             </div>
@@ -44,8 +50,8 @@
                     <td>{{quantity.quantityId}}</td>
                     <td>{{quantity.quantityName}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#modalId" (click)="updateQuantity(quantity.quantityId)">Update</button> |
-                        <button type="button" class="btn btn-danger" (click)="deleteQuantity(quantity.quantityId)">Delete</button> 
+                        <button type="button" class="btn btn-update link2 link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="updateQuantity(quantity.quantityId)"><fa-icon [icon]="pencil"></fa-icon></button>
+                        <button type="button" class="btn btn-danger link3 link-four pulse-grow-on-hover" (click)="deleteQuantity(quantity.quantityId)"><fa-icon [icon]="trash"></fa-icon></button> 
                     </td>
                 </tr>
             </tbody>

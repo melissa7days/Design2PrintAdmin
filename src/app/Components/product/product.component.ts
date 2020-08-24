@@ -7,6 +7,7 @@ import { ProductService } from 'src/app/Services/ProductService/product.service'
 import { CategoryService } from 'src/app/Services/CategoryService/category.service';
 import { ProductTypeService } from 'src/app/Services/ProductTypeService/product-type.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product',
@@ -28,6 +29,8 @@ export class ProductComponent implements OnInit {
   productTypeId: number = null;
   dataFromForm: any;
   updateOption: number;
+  pencil = faPencilAlt;
+  trash = faTrashAlt;
 
   constructor(private productService: ProductService, private categoryService: CategoryService, private productTypeService: ProductTypeService, private formBuilder: FormBuilder) { }
 
@@ -37,16 +40,13 @@ export class ProductComponent implements OnInit {
     this.getProductTypes();
     this.productForm= this.formBuilder.group({
       productName:['', Validators.required],
-      productBasePrice:[0, Validators.required],
+      productBasePrice:['',Validators.required],
       productImage:['', Validators.required]
     });
   }
 
   addProducts(product: Product){
     if(product != undefined && product != null){
-       if(this.products.find(x=>x.productId==this.updateOption)){
-        window.confirm("Are you sure you want to update this product")
-      } 
       if(this.updateOption == null){
         product.categoryId = this.categoryId;
         product.productTypeId = this.productTypeId;
@@ -60,10 +60,16 @@ export class ProductComponent implements OnInit {
         product.categoryId = this.selectedCategory.categoryId;
         product.productTypeId = this.selectedProductType.productTypeId;
         product.productId = this.updateOption;
+        if(window.confirm('Are you sure you want to update this record?')){
         this.productService.updateProduct(this.updateOption, product).subscribe((data:any)=>{
           this.getProducts();
           this.changeHeading();
+          alert("Product Updated Successfully");
         });
+      }
+      else{
+        this.getProductTypes();
+      }
       this.updateOption=null;
       }
     }

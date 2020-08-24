@@ -1,7 +1,14 @@
-<div class="container product-container">
+<div class="container style-container">
     <div class="row mt-2">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#modelId">Add Product</button>
+        <div class="col-md-2">
+            <button type="button" class="link link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modelId">Add New</button>
+        </div>
+        <div class="col-md-8">
+            <h2 class="headings"><span>P</span>roduct</h2>
+        </div>
+        <div class="col-md-2">
+
+        </div>
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -15,13 +22,10 @@
                         </div>
                         <div class="modal-body">
                             <form action="" [formGroup]="productForm">
-                                <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="Category Id">Category Id</label>
-                                    </div>
-                                    <div class="col-md-8">
+                                <div class="form-group row ">
+                                    <div class="col-md-12 dropdowns">
                                         <div class="dropdown open">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedCategory.categoryName}}</button>
+                                            <button class="btn dropdown-toggle btn-drop" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedCategory.categoryName}}</button>
                                             <div class="dropdown-menu" aria-labelledby="triggerId" style="height: 200px !important; min-width: 50% !important; overflow-x: hidden !important;">
                                                 <button class="dropdown-item" *ngFor="let c of categories" (click)="getCategoryId(c)">{{c.categoryId}} - {{c.categoryName}}</button>
                                             </div>
@@ -29,12 +33,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="Product Type Id">Product Type Id</label>
-                                    </div>
                                     <div class="col-md-8">
                                         <div class="dropdown open">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedProductType.productTypeName}}</button>
+                                            <button class="btn dropdown-toggle btn-drop" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedProductType.productTypeName}}</button>
                                             <div class="dropdown-menu" aria-labelledby="triggerId" style="height: 200px !important; min-width: 50% !important; overflow-x: hidden !important;">
                                                 <button class="dropdown-item" *ngFor="let p of productTypes" (click)="getProductTypeId(p)">{{p.productTypeId}} - {{p.productTypeName}}</button>
                                             </div>
@@ -42,33 +43,33 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="Product Name">Product Name</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control"id="productName" placeholder="Product Name" formControlName="productName">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="Product Base Price">Product Base Price</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="number" class="form-control"id="productBasePrice" placeholder="Product Base Price" formControlName="productBasePrice">
+                                    <div class="main_div">
+                                        <div class="group">
+                                            <input type="text" required="required" class="form-control" id="ProductName" formControlName="productName"/>
+                                            <label>Product Name</label>
+                                          </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-4">
-                                        <label for="Product Image">Product Image</label>
+                                    <div class="main_div">
+                                        <div class="group">
+                                            <input type="number" required="required" class="form-control" id="productBasePrice" formControlName="productBasePrice"/>
+                                            <label>Product Base Price</label>
+                                          </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control"id="ProductImage" placeholder="Product Image" formControlName="productImage">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="main_div">
+                                        <div class="group">
+                                            <input type="text" required="required" class="form-control" id="ProductImage" formControlName="productImage"/>
+                                            <label>Product Image</label>
+                                          </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
+                            <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()" [disabled]="!productForm.valid">Save</button>
                         </div>
                     </div>
                 </div>
@@ -92,14 +93,14 @@
                         <td>{{prod.productTypeId}}</td>
                         <td>{{prod.productName}}</td>
                         <td>{{prod.productBasePrice}}</td>
-                        <td>{{prod.productImage}}</td>
+                        <td><img src="{{prod.productImage}}" alt="" class="prod-image"></td>
                         <td>
-                            <button class="btn btn-primary btn-update" (click)="loadFormToEdit(prod.productId)" data-toggle="modal" data-target="#modelId">Update</button> |
-                            <button class="btn btn-danger" (click)="deleteProduct(prod.productId)">Delete</button>
+                            <button class="btn btn-update link2 link-four pulse-grow-on-hover" (click)="loadFormToEdit(prod.productId)" data-toggle="modal" data-target="#modelId"><fa-icon [icon]="pencil"></fa-icon></button>
+                            <button class="btn btn-danger link3 link-four pulse-grow-on-hover" (click)="deleteProduct(prod.productId)"><fa-icon [icon]="trash"></fa-icon></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        
     </div>
 </div>

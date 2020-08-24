@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/CategoryService/category.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { faFilm, faPencilAlt, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-category',
@@ -15,6 +16,9 @@ export class CategoryComponent implements OnInit {
   category: Category;
   formHeading: string;
   categoryUpdate = null;
+  pencil = faPencilAlt;
+  trash = faTrashAlt;
+  plus = faPlus;
 
   constructor(private categoryService: CategoryService, private formBuilder:FormBuilder) { }
 
@@ -30,16 +34,23 @@ export class CategoryComponent implements OnInit {
     if(category!=undefined && category!=null){
       if(this.categoryUpdate==null){
         this.categoryService.addCategory(category).subscribe(()=>{
+          alert("Record Added Successfully!");
           this.setHeading();
           this.getCategories();
         });
       }
       else{
         category.categoryId = this.categoryUpdate;
-        this.categoryService.updateCategory(this.categoryUpdate, category).subscribe(()=>{
+        if(window.confirm('Are you sure you want to update this record?')){
+          this.categoryService.updateCategory(this.categoryUpdate, category).subscribe(()=>{
+            alert("Category Updated Successfully!");
+            this.getCategories();
+            this.setHeading();
+          });
+        }
+        else{
           this.getCategories();
-          this.setHeading();
-        });
+        }
       }
     }
   }
@@ -60,15 +71,14 @@ export class CategoryComponent implements OnInit {
     this.categoryService.getCategoryById(categoryId).subscribe((data:any)=>{
       this.category = data;
       this.categoryUpdate = categoryId;
-      console.log('Found this', this.category);
       this.categoryForm.controls['CategoryName'].setValue(data[0].categoryName);
       this.categoryForm.controls['CategoryDescription'].setValue(data[0].categoryDescription);
     });
   }
 
   deleteCategory(categoryId:number){
-    if(window.confirm('Are you sure you want to delete this record')){
-      this.categoryService.deleteCategory(categoryId).subscribe(()=>{
+    if(window.confirm('Are you sure you want to delete this record?')){
+      this.categoryService.deleteCategory(categoryId).subscribe((data:any)=>{
         this.getCategories();
       });
     }

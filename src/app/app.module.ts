@@ -9,6 +9,8 @@ import { CategoryComponent } from './Components/category/category.component';
 import { ProductTypeComponent } from './Components/product-type/product-type.component';
 import { ProductComponent } from './Components/product/product.component';
 import { QuantityComponent } from './Components/quantity/quantity.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DesignServiceComponent } from './Components/design-service/design-service.component'
 
 @NgModule({
   declarations: [
@@ -16,14 +18,16 @@ import { QuantityComponent } from './Components/quantity/quantity.component';
     CategoryComponent,
     ProductTypeComponent,
     ProductComponent,
-    QuantityComponent
+    QuantityComponent,
+    DesignServiceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

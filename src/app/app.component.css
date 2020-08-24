@@ -6,15 +6,13 @@
     background-color: transparent !important;
     min-width: 100% !important;
     font-style: normal black !important;
-    font-family: 'Montserrat', sans-serif !important;
-  }
+    font-family: 'Poppins', sans-serif;  }
   .nav-item{
     color: rgb(44, 44, 44) !important;
-    font-family: 'Montserrat', sans-serif !important;
-  }
+    font-family: 'Poppins', sans-serif;  }
   .navbar-brand{
     color: white !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;    
     text-transform: uppercase !important;
     padding-right: 120px !important;
     font-size: 20px !important;
@@ -27,21 +25,21 @@
   }
   .navbar-nav{
     color: white !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
     margin-bottom: -10px !important;
   }
   .nav-link{
     color: rgb(41, 41, 41) !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
   }
   .dropdown-menu{
     background-color: #ffffff !important;
     color: rgb(41, 41, 41) !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
   }
   .dropdown-item{
     color:  rgb(41, 41, 41) !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
   }
   .dropdown-item:hover{
     color:  rgb(255, 255, 255) !important;
@@ -49,5 +47,5 @@
   }
   .modal-header{
     background-color: #23779a !important;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
   }

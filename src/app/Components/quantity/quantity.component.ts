@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Quantity } from 'src/app/Models/quantity';
 import { QuantityService } from 'src/app/Services/QuantityService/quantity.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-quantity',
@@ -15,7 +16,9 @@ export class QuantityComponent implements OnInit {
   quantity: Quantity;
   formHeading: string;
   quantityUpdate = null;
-
+  pencil = faPencilAlt;
+  trash = faTrashAlt;
+  
   constructor(private quantityService: QuantityService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -31,14 +34,20 @@ export class QuantityComponent implements OnInit {
         this.quantityService.addQuantity(quantity).subscribe(()=>{
           this.setHeading();
           this.getQuantities();
+          alert("Quantity Added Successfully");
         });
       }
       else{
         quantity.quantityId = this.quantityUpdate;
+        if(window.confirm('Are you sure you want to update this record?')){
         this.quantityService.updateQuantity(this.quantityUpdate, quantity).subscribe(()=>{
           this.getQuantities();
           this.setHeading();
         });
+      }
+      else{
+        this.getQuantities();
+      }
       }
     }
   }

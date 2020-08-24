@@ -1,8 +1,15 @@
-<div class="container category-container">
+<div class="container style-container">
     <div class="row mt-2">
-        <div class="col-md-12">
-            <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add Category</button>
+        <div class="col-md-2">
+            <button type="button" class="link link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add New</button>
         </div>
+        <div class="col-md-8">
+            <h2 class="headings"><span>C</span>ategory</h2>
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+        
         <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -16,49 +23,53 @@
                     <div class="modal-body">
                         <form action="" [formGroup]="categoryForm">
                             <div class="form-group row">
-                                <div class="col-md-4">
-                                    <label for="Category Name">Category Name</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" id="CategoryName" placeholder="Category Name" formControlName="CategoryName">
-                                </div>
+                                <div class="main_div">
+                                    <div class="group">
+                                        <input type="text" class="form-control" name="CategoryName" id="CategoryName" formControlName="CategoryName" required/>
+                                        <label>Category Name</label>
+                                        
+                                    </div>
+                                  </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-4">
-                                    <label for="Category Description">Category Description</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" id="CategoryDescription" placeholder="Category Description" formControlName="CategoryDescription">
-                                </div>
+                                <div class="main_div">
+                                    <div class="group">
+                                        <input type="text" required="required" class="form-control"id="CategoryDescription" formControlName="CategoryDescription"/>
+                                        <label>Category Description</label>
+                                    </div>
+                                  </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal"  (click)="onFormSubmit()">Save</button>
+                        <button type="submit" class="btn btn-primary btn-save"id="btn-save"  data-dismiss="modal"  (click)="onFormSubmit()" [disabled]="!categoryForm.valid">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Category Name</th>
-                    <th>Category Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody class="justify-content-center">
-                <tr *ngFor="let category of categories">
-                    <td>{{category.categoryId}}</td>
-                    <td>{{category.categoryName}}</td>
-                    <td>{{category.categoryDescription}}</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-update" data-toggle="modal" data-target="#modalId" (click)="updateCategory(category.categoryId)">Update</button> |
-                        <button type="button" class="btn btn-danger" (click)="deleteCategory(category.categoryId)">Delete</button> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card" style="min-width: 100% !important;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category Name</th>
+                        <th>Category Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="justify-content-center">
+                    <tr *ngFor="let category of categories">
+                        <td>{{category.categoryId}}</td>
+                        <td>{{category.categoryName}}</td>
+                        <td>{{category.categoryDescription}}</td>
+                        <td>
+                            <button type="button" class="btn btn-update link2 link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="updateCategory(category.categoryId)"><fa-icon [icon]="pencil"></fa-icon></button>  
+                            <button type="button" class="btn btn-danger link3 link-four pulse-grow-on-hover" (click)="deleteCategory(category.categoryId)"><fa-icon [icon]="trash"></fa-icon></button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 </div>

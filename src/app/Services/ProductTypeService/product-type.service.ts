@@ -15,7 +15,7 @@ export class ProductTypeService {
   paramProductType = 'producttype';
   paramProductTypeById = '/getProductTypeById';
   productTypeId = '?productTypeId=';
-  productTypeUpdateDeleteId = '?id';
+  productTypeUpdateDeleteId = '?id=';
 
   private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
 

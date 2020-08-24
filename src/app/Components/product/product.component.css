@@ -14,3 +14,19 @@
     background-color: rgb(194, 0, 0);
     border: none !important;
 }
+.btn-drop{
+    text-align: left;
+    transform: translate(53%,-0%);
+    width: 227px;
+    color: #575757;
+    border: 1px solid #cfcfcf;
+    background-color: transparent !important;
+    margin-top: 10px;
+  }
+  .btn-drop:hover{
+    border: 1px solid rgb(0, 180, 180);
+  }
+  .prod-image{
+      width: 50px;
+      height: 50px;
+  }

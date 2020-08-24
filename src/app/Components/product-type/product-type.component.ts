@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductType } from 'src/app/Models/product-type';
 import { ProductTypeService } from 'src/app/Services/ProductTypeService/product-type.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-product-type',
@@ -15,13 +16,15 @@ export class ProductTypeComponent implements OnInit {
   productType: ProductType;
   formHeading: string;
   productTypeUpdate = null;
+  pencil = faPencilAlt;
+  trash = faTrashAlt;
 
   constructor(private productTypeService: ProductTypeService, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.productTypeForm = this.formBuilder.group({
-      ProductTypeName:['',Validators.required]
-    })
+      productTypeName:['',Validators.required]
+    });
     this.getProductTypes();
   }
 
@@ -29,16 +32,23 @@ export class ProductTypeComponent implements OnInit {
     if(productType!=undefined && productType!=null){
       if(this.productTypeUpdate==null){
         this.productTypeService.addProductType(productType).subscribe(()=>{
+          alert("Record Added Successfully!");
           this.setHeading();
           this.getProductTypes();
         });
       }
       else{
         productType.productTypeId = this.productTypeUpdate;
-        this.productTypeService.updateProductType(this.productTypeUpdate, productType).subscribe(()=>{
+        if(window.confirm('Are you sure you want to update this record?')){
+          this.productTypeService.updateProductType(this.productTypeUpdate, productType).subscribe(()=>{
+            alert("Category Updated Successfully!");
+            this.getProductTypes();
+            this.setHeading();
+          });
+        }
+        else{
           this.getProductTypes();
-          this.setHeading();
-        });
+        }
       }
     }
   }
@@ -60,8 +70,7 @@ export class ProductTypeComponent implements OnInit {
     this.productTypeService.getProductTypeById(productTypeId).subscribe((data:any)=>{
       this.productType = data;
       this.productTypeUpdate = productTypeId;
-      console.log('Found this', this.productType);
-      this.productTypeForm.controls['ProductTypeName'].setValue(data[0].productTypeName);
+      this.productTypeForm.controls['productTypeName'].setValue(data[0].productTypeName);
     });
   }
 
@@ -74,19 +83,19 @@ export class ProductTypeComponent implements OnInit {
     else{
       this.getProductTypes();
     }
-    }
+  }
 
-    onFormSubmit(){
+  onFormSubmit(){
       const productTypeData = this.productTypeForm.value;
       this.addProductType(productTypeData);
-    }
+  }
 
-    resetForm(){
+  resetForm(){
       this.productTypeForm.reset();
-    }
+  }
 
-    setHeading(){
+  setHeading(){
       this.productTypeUpdate = null;
       this.resetForm();
-    }
+  }
 }
