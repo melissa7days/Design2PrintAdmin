@@ -15,7 +15,8 @@ import { FinishedFormatComponent } from './Components/finished-format/finished-f
 import { MaterialComponent } from './Components/material/material.component';
 import { ColorComponent } from './Components/color/color.component';
 import { RefinementComponent } from './Components/refinement/refinement.component';
-import { BookBindingComponent } from './Components/book-binding/book-binding.component'
+import { BookBindingComponent } from './Components/book-binding/book-binding.component';
+import { FinishingComponent } from './Components/finishing/finishing.component'
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BookBindingComponent } from './Components/book-binding/book-binding.com
     ColorComponent,
     RefinementComponent,
     BookBindingComponent,
+    FinishingComponent,
   ],
   imports: [
     BrowserModule,

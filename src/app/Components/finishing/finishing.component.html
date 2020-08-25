@@ -1,0 +1,60 @@
+<div class="container style-container">
+    <div class="row mt-2">
+        <div class="col-md-2">
+            <button type="button" class="link link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="setHeading()">Add New</button>
+        </div>
+        <div class="col-md-8">
+            <h2 class="headings"><span>F</span>inishing</h2>
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <ng-template [ngIf]="finishingUpdate===null">Add Finishing</ng-template>
+                            <ng-template [ngIf]="finishingUpdate!=null">Update Finishing</ng-template>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="setHeading()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" [formGroup]="finishingForm">
+                            <div class="form-group row">
+                                <div class="main_div">
+                                    <div class="group">
+                                        <input type="text" required="required" class="form-control" id="FinishingName" formControlName="finishingName"/>
+                                        <label>Finishing Name</label>
+                                      </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-save"  data-dismiss="modal" (click)="onFormSubmit()" [disabled]="!finishingForm.valid">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Finishing Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="justify-content-center">
+                <tr *ngFor="let f of finishings">
+                    <td>{{f.finishingId}}</td>
+                    <td>{{f.finishingName}}</td>
+                    <td>
+                        <button type="button" class="btn btn-update link2 link-four pulse-grow-on-hover" data-toggle="modal" data-target="#modalId" (click)="updateFinishing(f.finishingId)"><fa-icon [icon]="pencil"></fa-icon></button>
+                        <button type="button" class="btn btn-danger link3 link-four pulse-grow-on-hover" (click)="deleteFinishing(f.finishingId)"><fa-icon [icon]="trash"></fa-icon></button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
