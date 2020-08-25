@@ -13,7 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DesignServiceComponent } from './Components/design-service/design-service.component';
 import { FinishedFormatComponent } from './Components/finished-format/finished-format.component';
 import { MaterialComponent } from './Components/material/material.component';
-import { ColorComponent } from './Components/color/color.component'
+import { ColorComponent } from './Components/color/color.component';
+import { RefinementComponent } from './Components/refinement/refinement.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ColorComponent } from './Components/color/color.component'
     FinishedFormatComponent,
     MaterialComponent,
     ColorComponent,
+    RefinementComponent,
   ],
   imports: [
     BrowserModule,
