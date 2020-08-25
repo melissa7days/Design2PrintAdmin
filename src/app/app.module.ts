@@ -12,7 +12,8 @@ import { QuantityComponent } from './Components/quantity/quantity.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DesignServiceComponent } from './Components/design-service/design-service.component';
 import { FinishedFormatComponent } from './Components/finished-format/finished-format.component';
-import { MaterialComponent } from './Components/material/material.component'
+import { MaterialComponent } from './Components/material/material.component';
+import { ColorComponent } from './Components/color/color.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MaterialComponent } from './Components/material/material.component'
     DesignServiceComponent,
     FinishedFormatComponent,
     MaterialComponent,
+    ColorComponent,
   ],
   imports: [
     BrowserModule,

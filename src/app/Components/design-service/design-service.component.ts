@@ -23,7 +23,7 @@ export class DesignServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.designServiceForm = this.formBuilder.group({
-      designServiceName:[0, Validators.required]
+      designServiceName:['', Validators.required]
     });
     this.getDesignServices();
   }

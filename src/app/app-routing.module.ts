@@ -7,6 +7,7 @@ import { QuantityComponent } from './Components/quantity/quantity.component';
 import { DesignServiceComponent } from './Components/design-service/design-service.component';
 import { FinishedFormatComponent } from './Components/finished-format/finished-format.component';
 import { MaterialComponent } from './Components/material/material.component';
+import { ColorComponent } from './Components/color/color.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'design2print/designService', component:DesignServiceComponent},
   {path:'design2print/finishedFormat', component:FinishedFormatComponent},
   {path:'design2print/material', component:MaterialComponent},
+  {path:'design2print/color', component:ColorComponent},
 ];
 
 @NgModule({
