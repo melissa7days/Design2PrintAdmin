@@ -10,7 +10,8 @@ import { ProductTypeComponent } from './Components/product-type/product-type.com
 import { ProductComponent } from './Components/product/product.component';
 import { QuantityComponent } from './Components/quantity/quantity.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DesignServiceComponent } from './Components/design-service/design-service.component'
+import { DesignServiceComponent } from './Components/design-service/design-service.component';
+import { FinishedFormatComponent } from './Components/finished-format/finished-format.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DesignServiceComponent } from './Components/design-service/design-servi
     ProductComponent,
     QuantityComponent,
     DesignServiceComponent,
+    FinishedFormatComponent,
   ],
   imports: [
     BrowserModule,

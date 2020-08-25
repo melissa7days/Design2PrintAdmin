@@ -4,6 +4,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import { ProductTypeComponent } from './Components/product-type/product-type.component';
 import { ProductComponent } from './Components/product/product.component';
 import { QuantityComponent } from './Components/quantity/quantity.component';
+import { DesignServiceComponent } from './Components/design-service/design-service.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'design2print/producttype', component:ProductTypeComponent},
   {path:'design2print/product', component:ProductComponent},
   {path:'design2print/quantity', component:QuantityComponent},
+  {path:'design2print/designService', component:DesignServiceComponent},
 ];
 
 @NgModule({
