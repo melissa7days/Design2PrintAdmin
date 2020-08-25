@@ -9,6 +9,7 @@ import { FinishedFormatComponent } from './Components/finished-format/finished-f
 import { MaterialComponent } from './Components/material/material.component';
 import { ColorComponent } from './Components/color/color.component';
 import { RefinementComponent } from './Components/refinement/refinement.component';
+import { BookBindingComponent } from './Components/book-binding/book-binding.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'design2print/material', component:MaterialComponent},
   {path:'design2print/color', component:ColorComponent},
   {path:'design2print/refinement', component:RefinementComponent},
+  {path:'design2print/bookbinding', component:BookBindingComponent},
 ];
 
 @NgModule({
