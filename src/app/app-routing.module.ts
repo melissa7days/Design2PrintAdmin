@@ -13,6 +13,7 @@ import { BookBindingComponent } from './Components/book-binding/book-binding.com
 import { FinishingComponent } from './Components/finishing/finishing.component';
 import { PDFComponent } from './Components/pdf/pdf.component';
 import { PagesComponent } from './Components/pages/pages.component';
+import { DiscountComponent } from './Components/discount/discount.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'design2print/finishing', component:FinishingComponent},
   {path:'design2print/pdf', component:PDFComponent},
   {path:'design2print/page', component:PagesComponent},
+  {path:'design2print/discount', component:DiscountComponent},
 ];
 
 @NgModule({
