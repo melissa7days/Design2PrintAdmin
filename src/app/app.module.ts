@@ -16,7 +16,8 @@ import { MaterialComponent } from './Components/material/material.component';
 import { ColorComponent } from './Components/color/color.component';
 import { RefinementComponent } from './Components/refinement/refinement.component';
 import { BookBindingComponent } from './Components/book-binding/book-binding.component';
-import { FinishingComponent } from './Components/finishing/finishing.component'
+import { FinishingComponent } from './Components/finishing/finishing.component';
+import { PDFComponent } from './Components/pdf/pdf.component'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FinishingComponent } from './Components/finishing/finishing.component'
     RefinementComponent,
     BookBindingComponent,
     FinishingComponent,
+    PDFComponent,
   ],
   imports: [
     BrowserModule,
