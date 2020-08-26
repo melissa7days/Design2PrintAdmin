@@ -17,7 +17,9 @@ import { ColorComponent } from './Components/color/color.component';
 import { RefinementComponent } from './Components/refinement/refinement.component';
 import { BookBindingComponent } from './Components/book-binding/book-binding.component';
 import { FinishingComponent } from './Components/finishing/finishing.component';
-import { PDFComponent } from './Components/pdf/pdf.component'
+import { PDFComponent } from './Components/pdf/pdf.component';
+import { PagesComponent } from './Components/pages/pages.component';
+import { DiscountComponent } from './Components/discount/discount.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { PDFComponent } from './Components/pdf/pdf.component'
     BookBindingComponent,
     FinishingComponent,
     PDFComponent,
+    PagesComponent,
+    DiscountComponent,
   ],
   imports: [
     BrowserModule,

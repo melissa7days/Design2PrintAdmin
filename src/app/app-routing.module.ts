@@ -12,6 +12,7 @@ import { RefinementComponent } from './Components/refinement/refinement.componen
 import { BookBindingComponent } from './Components/book-binding/book-binding.component';
 import { FinishingComponent } from './Components/finishing/finishing.component';
 import { PDFComponent } from './Components/pdf/pdf.component';
+import { PagesComponent } from './Components/pages/pages.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'design2print/bookbinding', component:BookBindingComponent},
   {path:'design2print/finishing', component:FinishingComponent},
   {path:'design2print/pdf', component:PDFComponent},
+  {path:'design2print/page', component:PagesComponent},
 ];
 
 @NgModule({
