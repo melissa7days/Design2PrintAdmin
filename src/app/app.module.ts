@@ -19,7 +19,8 @@ import { BookBindingComponent } from './Components/book-binding/book-binding.com
 import { FinishingComponent } from './Components/finishing/finishing.component';
 import { PDFComponent } from './Components/pdf/pdf.component';
 import { PagesComponent } from './Components/pages/pages.component';
-import { DiscountComponent } from './Components/discount/discount.component'
+import { DiscountComponent } from './Components/discount/discount.component';
+import { ProductTypeQuantityComponent } from './Components/product-type-quantity/product-type-quantity.component'
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DiscountComponent } from './Components/discount/discount.component'
     PDFComponent,
     PagesComponent,
     DiscountComponent,
+    ProductTypeQuantityComponent,
   ],
   imports: [
     BrowserModule,

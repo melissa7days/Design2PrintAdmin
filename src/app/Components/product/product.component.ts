@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
   categoryId: number = null;
   productTypeId: number = null;
   dataFromForm: any;
-  updateOption: number;
+  updateOption = null;
   pencil = faPencilAlt;
   trash = faTrashAlt;
 
